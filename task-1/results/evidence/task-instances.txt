@@ -1,0 +1,18 @@
+     run_id     |     task_id     |      state      | try_number
+----------------+-----------------+-----------------+------------
+ review-empty   | choose_report   | success         |          1
+ review-empty   | notify_success  | success         |          1
+ review-empty   | publish_report  | skipped         |          0
+ review-empty   | read_deliveries | success         |          1
+ review-empty   | record_empty    | success         |          1
+ review-invalid | choose_report   | upstream_failed |          0
+ review-invalid | notify_success  | upstream_failed |          0
+ review-invalid | publish_report  | upstream_failed |          0
+ review-invalid | read_deliveries | failed          |          2
+ review-invalid | record_empty    | upstream_failed |          0
+ review-normal  | choose_report   | success         |          1
+ review-normal  | notify_success  | success         |          1
+ review-normal  | publish_report  | success         |          1
+ review-normal  | read_deliveries | success         |          1
+ review-normal  | record_empty    | skipped         |          0
+(15 rows)

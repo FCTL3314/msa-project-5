@@ -1,0 +1,52 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "__name__": "warehouse_import_completed_total",
+          "instance": "app:9404",
+          "job": "warehouse"
+        },
+        "value": [
+          1795711294.232,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "warehouse_import_failed_total",
+          "instance": "app:9404",
+          "job": "warehouse"
+        },
+        "value": [
+          1795711294.232,
+          "1"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "warehouse_import_last_duration_seconds",
+          "instance": "app:9404",
+          "job": "warehouse"
+        },
+        "value": [
+          1795711294.232,
+          "0.02"
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "warehouse_import_rows_total",
+          "instance": "app:9404",
+          "job": "warehouse"
+        },
+        "value": [
+          1795711294.232,
+          "5"
+        ]
+      }
+    ]
+  }
+}

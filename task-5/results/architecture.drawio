@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="TradeWare · C4, контейнеры наблюдаемости">
+    <mxGraphModel pageWidth="1300" pageHeight="655" grid="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="edge0" parent="1" edge="1" source="prom" target="app" value="Scrape :9404" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.0;exitY=0.5;entryX=0.5;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge1" parent="1" edge="1" source="graf" target="prom" value="PromQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.0;exitY=0.5;entryX=1.0;entryY=0.18;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" parent="1" edge="1" source="prom" target="am" value="Сработало правило" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.75;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="175" />
+              <mxPoint x="680" y="276" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge3" parent="1" edge="1" source="am" target="mail" value="SMTP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" parent="1" edge="1" source="app" target="beat" value="Пишет JSON в том" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.5;exitY=1.0;entryX=0.5;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" parent="1" edge="1" source="beat" target="ls" value="Beats :5044" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" parent="1" edge="1" source="ls" target="es" value="HTTP bulk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge7" parent="1" edge="1" source="kb" target="es" value="Поиск" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.0;exitY=0.5;entryX=1.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="app" parent="1" vertex="1" value="Контейнер · Java&lt;br&gt;Spring Batch&lt;br&gt;JMX MBean и JSON-журнал" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="45" y="250" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="prom" parent="1" vertex="1" value="Контейнер&lt;br&gt;Prometheus&lt;br&gt;Собирает метрики и считает&lt;br&gt;правила" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="385" y="100" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="graf" parent="1" vertex="1" value="Контейнер&lt;br&gt;Grafana&lt;br&gt;Показывает дашборд импорта" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="735" y="68" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="am" parent="1" vertex="1" value="Контейнер&lt;br&gt;Alertmanager&lt;br&gt;Группирует и отправляет&lt;br&gt;алерты" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="735" y="226" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mail" parent="1" vertex="1" value="Внешняя система&lt;br&gt;SMTP / Mailpit&lt;br&gt;Доставляет дежурному письмо" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#526577;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="1040" y="226" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="beat" parent="1" vertex="1" value="Контейнер&lt;br&gt;Filebeat&lt;br&gt;Читает журнал с общего тома" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="45" y="490" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ls" parent="1" vertex="1" value="Контейнер&lt;br&gt;Logstash&lt;br&gt;Принимает события по Beats" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="385" y="490" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="es" parent="1" vertex="1" value="Контейнер&lt;br&gt;Elasticsearch&lt;br&gt;Индексирует события импорта" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="735" y="490" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="kb" parent="1" vertex="1" value="Контейнер&lt;br&gt;Kibana&lt;br&gt;Ищет события по traceId" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="1040" y="490" width="230" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

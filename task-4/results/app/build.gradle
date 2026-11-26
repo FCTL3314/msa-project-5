@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.3'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+java { toolchain { languageVersion = JavaLanguageVersion.of(17) } }
+repositories { mavenCentral() }
+configurations { jmxAgent }
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    runtimeOnly 'org.postgresql:postgresql'
+    jmxAgent 'io.prometheus.jmx:jmx_prometheus_javaagent:1.0.1@jar'
+}
+tasks.register('copyAgent', Copy) {
+    from configurations.jmxAgent
+    include 'jmx_prometheus_javaagent-*.jar'
+    into layout.buildDirectory.dir('agent')
+    rename { 'jmx-agent.jar' }
+}
+bootJar { archiveFileName = 'tradeware.jar' }

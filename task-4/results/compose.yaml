@@ -1,0 +1,29 @@
+name: msa5-tradeware
+services:
+  db:
+    image: postgres:17
+    environment: {POSTGRES_USER: warehouse, POSTGRES_PASSWORD: local-demo, POSTGRES_DB: warehouse}
+    volumes:
+      - warehouse:/var/lib/postgresql/data
+      - ./app/src/main/resources/schema-all.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+      - ./app/src/main/resources/loyality_data.csv:/fixtures/loyality_data.csv:ro
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U warehouse -d warehouse"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  app:
+    image: msa5/tradeware:local
+    build: {context: ../.., dockerfile: task-4/results/Dockerfile}
+    depends_on:
+      db: {condition: service_healthy}
+    ports: ["${BIND_IP:-127.0.0.1}:18481:8080"]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/warehouse
+      SPRING_DATASOURCE_USERNAME: warehouse
+      SPRING_DATASOURCE_PASSWORD: local-demo
+    volumes: [batch-logs:/app/logs]
+volumes:
+  warehouse:
+  batch-logs:

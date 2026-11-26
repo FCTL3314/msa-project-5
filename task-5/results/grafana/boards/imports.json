@@ -1,0 +1,229 @@
+{
+  "title": "TradeWare · импорт остатков",
+  "uid": "warehouse-import",
+  "schemaVersion": 40,
+  "version": 1,
+  "refresh": "5s",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Успешные импорты",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "warehouse-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "warehouse_import_completed_total",
+          "legendFormat": "Успешные импорты",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "warehouse-prom"
+          },
+          "editorMode": "code",
+          "range": true,
+          "instant": false
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 6
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Ошибки импорта",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "warehouse-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "warehouse_import_failed_total",
+          "legendFormat": "Ошибки импорта",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "warehouse-prom"
+          },
+          "editorMode": "code",
+          "range": true,
+          "instant": false
+        }
+      ],
+      "gridPos": {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 6
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Записано строк",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "warehouse-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "warehouse_import_rows_total",
+          "legendFormat": "Записано строк",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "warehouse-prom"
+          },
+          "editorMode": "code",
+          "range": true,
+          "instant": false
+        }
+      ],
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 6,
+        "h": 6
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Последний импорт",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "warehouse-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "warehouse_import_last_duration_seconds",
+          "legendFormat": "Последний импорт",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "warehouse-prom"
+          },
+          "editorMode": "code",
+          "range": true,
+          "instant": false
+        }
+      ],
+      "gridPos": {
+        "x": 18,
+        "y": 0,
+        "w": 6,
+        "h": 6
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Доступность обработчика",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "warehouse-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "up{job=\"warehouse\"}",
+          "legendFormat": "Доступность обработчика",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "warehouse-prom"
+          },
+          "editorMode": "code",
+          "range": true,
+          "instant": false
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 6,
+        "w": 24,
+        "h": 9
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {}
+    }
+  ]
+}

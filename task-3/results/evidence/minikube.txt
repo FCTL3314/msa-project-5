@@ -1,0 +1,23 @@
+$ minikube -p msa5-review status
+msa5-review
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+$ kubectl -n freight-demo get cronjob,job,pods
+NAME                            SCHEDULE     TIMEZONE        SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+cronjob.batch/shipment-export   0 20 * * *   Europe/Moscow   False     0        <none>          97s
+
+NAME                      STATUS     COMPLETIONS   DURATION   AGE
+job.batch/export-review   Complete   1/1           56s        95s
+
+NAME                      READY   STATUS      RESTARTS   AGE
+pod/db-5c77875476-5hr86   1/1     Running     0          97s
+pod/export-review-g8x9d   0/1     Completed   0          95s
+$ kubectl -n freight-demo logs job/export-review
+Exported day=2026-11-25 path=/exports/shipments-2026-11-25.csv bytes=125
+id,shipped_at,destination,weight_kg
+71,2026-11-25 05:00:00+03,Казань,125.50
+72,2026-11-25 22:00:00+03,Минск,84.00
