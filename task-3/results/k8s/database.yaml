@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Secret
+metadata: {name: database, namespace: freight-demo}
+type: Opaque
+stringData: {POSTGRES_PASSWORD: local-freight}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: seed, namespace: freight-demo}
+data:
+  seed.sql: |
+    SET TIME ZONE 'Europe/Moscow';
+    CREATE TABLE shipments (id bigint PRIMARY KEY, shipped_at timestamptz NOT NULL,
+                            destination text NOT NULL, weight_kg numeric(10,2) NOT NULL);
+    CREATE INDEX shipments_export ON shipments (shipped_at, id);
+    INSERT INTO shipments VALUES
+      (71,current_date - interval '19 hours','Казань',125.50),
+      (72,current_date - interval '2 hours','Минск',84.00),
+      (73,current_date + interval '3 hours','Москва',310.00);
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: db, namespace: freight-demo}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: freight-db}}
+  template:
+    metadata: {labels: {app: freight-db}}
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:17
+          imagePullPolicy: IfNotPresent
+          envFrom: [{secretRef: {name: database}}]
+          readinessProbe:
+            exec: {command: ["pg_isready","-U","postgres"]}
+            periodSeconds: 3
+          volumeMounts: [{name: seed, mountPath: /docker-entrypoint-initdb.d, readOnly: true}]
+      volumes: [{name: seed, configMap: {name: seed}}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: db, namespace: freight-demo}
+spec:
+  selector: {app: freight-db}
+  ports: [{port: 5432, targetPort: 5432}]

@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata: {name: exports, namespace: freight-demo}
+spec:
+  accessModes: [ReadWriteOnce]
+  resources: {requests: {storage: 128Mi}}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata: {name: shipment-export, namespace: freight-demo}
+spec:
+  schedule: '0 20 * * *'
+  timeZone: Europe/Moscow
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 3600
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      activeDeadlineSeconds: 900
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: export
+              image: freight-export:sprint5
+              imagePullPolicy: Never
+              env:
+                - {name: PGHOST, value: db}
+                - {name: PGUSER, value: postgres}
+                - {name: PGDATABASE, value: postgres}
+                - name: PGPASSWORD
+                  valueFrom: {secretKeyRef: {name: database, key: POSTGRES_PASSWORD}}
+              volumeMounts: [{name: exports, mountPath: /exports}]
+          volumes: [{name: exports, persistentVolumeClaim: {claimName: exports}}]
