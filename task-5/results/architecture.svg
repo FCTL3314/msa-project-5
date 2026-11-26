@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 655" width="1300" height="655" role="img">
+  <title>TradeWare · C4, контейнеры наблюдаемости</title>
+  <rect width="1300" height="655" fill="#f7f9fc" />
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#51677d" />
+    </marker>
+  </defs>
+  <text x="38" y="39" text-anchor="start" font-size="25" font-family="Arial, sans-serif" font-weight="700" fill="#273e54">TradeWare · C4, контейнеры наблюдаемости</text>
+  <polyline points="385,150 160,150 160,250" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="207.4" y="123" width="109.19999999999999" height="20" fill="#f7f9fc" />
+  <text x="262" y="138" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Scrape :9404</text>
+  <polyline points="735,118 615,118" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="644.7" y="92" width="60.599999999999994" height="20" fill="#f7f9fc" />
+  <text x="675" y="107" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">PromQL</text>
+  <polyline points="615,175 680,175 680,276 735,276" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="591.15" y="195" width="149.7" height="20" fill="#f7f9fc" />
+  <text x="666" y="210" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Сработало правило</text>
+  <polyline points="965,276 1040,276" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="979.8" y="250" width="44.4" height="20" fill="#f7f9fc" />
+  <text x="1002" y="265" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">SMTP</text>
+  <polyline points="160,350 160,490" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="89.2" y="405" width="141.6" height="20" fill="#f7f9fc" />
+  <text x="160" y="420" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Пишет JSON в том</text>
+  <polyline points="275,540 385,540" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="279.45" y="514" width="101.1" height="20" fill="#f7f9fc" />
+  <text x="330" y="529" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Beats :5044</text>
+  <polyline points="615,540 735,540" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="632.55" y="514" width="84.89999999999999" height="20" fill="#f7f9fc" />
+  <text x="675" y="529" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">HTTP bulk</text>
+  <polyline points="1040,540 965,540" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="975.75" y="514" width="52.5" height="20" fill="#f7f9fc" />
+  <text x="1002" y="529" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Поиск</text>
+  <rect x="45" y="250" width="230" height="100" rx="10" fill="#236393" />
+  <text x="160" y="272" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер · Java</text>
+  <text x="160" y="299" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Spring Batch</text>
+  <text x="160" y="320" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">JMX MBean и JSON-журнал</text>
+  <rect x="385" y="100" width="230" height="100" rx="10" fill="#236393" />
+  <text x="500" y="122" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер</text>
+  <text x="500" y="149" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Prometheus</text>
+  <text x="500" y="170" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Собирает метрики и считает</text>
+  <text x="500" y="189" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">правила</text>
+  <rect x="735" y="68" width="230" height="100" rx="10" fill="#236393" />
+  <text x="850" y="90" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер</text>
+  <text x="850" y="117" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Grafana</text>
+  <text x="850" y="138" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Показывает дашборд импорта</text>
+  <rect x="735" y="226" width="230" height="100" rx="10" fill="#236393" />
+  <text x="850" y="248" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер</text>
+  <text x="850" y="275" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Alertmanager</text>
+  <text x="850" y="296" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Группирует и отправляет</text>
+  <text x="850" y="315" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">алерты</text>
+  <rect x="1040" y="226" width="230" height="100" rx="10" fill="#526577" />
+  <text x="1155" y="248" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Внешняя система</text>
+  <text x="1155" y="275" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">SMTP / Mailpit</text>
+  <text x="1155" y="296" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Доставляет дежурному письмо</text>
+  <rect x="45" y="490" width="230" height="100" rx="10" fill="#236393" />
+  <text x="160" y="512" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер</text>
+  <text x="160" y="539" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Filebeat</text>
+  <text x="160" y="560" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Читает журнал с общего тома</text>
+  <rect x="385" y="490" width="230" height="100" rx="10" fill="#236393" />
+  <text x="500" y="512" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер</text>
+  <text x="500" y="539" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Logstash</text>
+  <text x="500" y="560" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Принимает события по Beats</text>
+  <rect x="735" y="490" width="230" height="100" rx="10" fill="#236393" />
+  <text x="850" y="512" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер</text>
+  <text x="850" y="539" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Elasticsearch</text>
+  <text x="850" y="560" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Индексирует события импорта</text>
+  <rect x="1040" y="490" width="230" height="100" rx="10" fill="#236393" />
+  <text x="1155" y="512" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер</text>
+  <text x="1155" y="539" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Kibana</text>
+  <text x="1155" y="560" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Ищет события по traceId</text>
+</svg>

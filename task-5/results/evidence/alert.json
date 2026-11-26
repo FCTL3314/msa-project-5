@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "data": {
+    "alerts": [
+      {
+        "labels": {
+          "alertname": "WarehouseImportFailed",
+          "instance": "app:9404",
+          "job": "warehouse",
+          "severity": "warning"
+        },
+        "annotations": {
+          "summary": "Ошибка импорта. Найдите import.finished со статусом FAILED в Kibana."
+        },
+        "state": "firing",
+        "activeAt": "2026-11-26T16:41:13.268731875Z",
+        "value": "1.04646e+00"
+      }
+    ]
+  }
+}

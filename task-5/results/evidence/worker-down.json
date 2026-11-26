@@ -1,0 +1,11 @@
+{
+  "Subject": "[FIRING:1] WarehouseWorkerDown (app:9404 warehouse critical)",
+  "To": [
+    {
+      "Name": "",
+      "Address": "operations@example.test"
+    }
+  ],
+  "Created": "2026-11-26T16:38:05.285Z",
+  "Snippet": "1 alert for alertname=WarehouseWorkerDown View in Alertmanager [1] Firing Labels alertname = WarehouseWorkerDowninstance = app:9404job = warehouseseverity = critical Annotations summary = Worker не..."
+}
