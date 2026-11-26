@@ -1,0 +1,77 @@
+services:
+  app:
+    environment:
+      JAVA_TOOL_OPTIONS: '-javaagent:/app/jmx-agent.jar=9404:/app/jmx.yml'
+  prometheus:
+    image: prom/prometheus:v3.4.0
+    volumes:
+      - ../../task-5/results/prometheus:/etc/prometheus:ro
+    ports: ["${BIND_IP:-127.0.0.1}:18490:9090"]
+  grafana:
+    image: grafana/grafana:12.0.1
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: 'true'
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+    volumes:
+      - ../../task-5/results/grafana:/etc/grafana/provisioning:ro
+    ports: ["${BIND_IP:-127.0.0.1}:18430:3000"]
+  alertmanager:
+    image: prom/alertmanager:v0.28.1
+    volumes:
+      - ../../task-5/results/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+  mailbox:
+    image: axllent/mailpit:v1.24
+    ports: ["${BIND_IP:-127.0.0.1}:${ALERT_MAIL_PORT:-18426}:8025"]
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.28
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: 'false'
+      ES_JAVA_OPTS: '-Xms384m -Xmx384m'
+    volumes: [search:/usr/share/elasticsearch/data]
+    healthcheck:
+      test: ["CMD-SHELL","curl -fsS http://localhost:9200/_cluster/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 40
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.17.28
+    environment:
+      LS_JAVA_OPTS: '-Xms256m -Xmx256m'
+      XPACK_MONITORING_ENABLED: 'false'
+      PIPELINE_WORKERS: '1'
+    volumes:
+      - ../../task-5/results/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    depends_on:
+      elasticsearch: {condition: service_healthy}
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.17.28
+    command: ["filebeat","-e","--strict.perms=false"]
+    user: "0"
+    volumes:
+      - batch-logs:/batch-logs:ro
+      - registry:/usr/share/filebeat/data
+      - ../../task-5/results/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.28
+    environment:
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+      TELEMETRY_ENABLED: 'false'
+    ports: ["${BIND_IP:-127.0.0.1}:18456:5601"]
+    depends_on:
+      elasticsearch: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD-SHELL","curl -fsS http://localhost:5601/api/status > /dev/null"]
+      interval: 6s
+      timeout: 5s
+      retries: 60
+  kibana-init:
+    image: docker.elastic.co/kibana/kibana:7.17.28
+    depends_on:
+      kibana: {condition: service_healthy}
+    entrypoint: ["/bin/bash","/setup.sh"]
+    volumes:
+      - ../../task-5/results/kibana-init.sh:/setup.sh:ro
+volumes:
+  search:
+  registry:

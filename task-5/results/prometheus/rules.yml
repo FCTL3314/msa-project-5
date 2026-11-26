@@ -1,0 +1,12 @@
+groups:
+  - name: warehouse-import
+    rules:
+      - alert: WarehouseImportFailed
+        expr: increase(warehouse_import_failed_total[5m]) > 0
+        labels: {severity: warning}
+        annotations: {summary: 'Ошибка импорта. Найдите import.finished со статусом FAILED в Kibana.'}
+      - alert: WarehouseWorkerDown
+        expr: up{job="warehouse"} == 0
+        for: 20s
+        labels: {severity: critical}
+        annotations: {summary: 'Worker недоступен. Проверьте процесс Java и порт JMX Exporter.'}
