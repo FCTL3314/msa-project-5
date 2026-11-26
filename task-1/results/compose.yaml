@@ -1,0 +1,62 @@
+name: msa5-airflow
+x-airflow: &airflow
+  image: apache/airflow:2.10.5
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__PARALLELISM: 2
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'false'
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@db/airflow
+    AIRFLOW__SMTP__SMTP_HOST: mail
+    AIRFLOW__SMTP__SMTP_PORT: '1025'
+    AIRFLOW__SMTP__SMTP_STARTTLS: 'false'
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: reports@example.test
+    AIRFLOW__WEBSERVER__SECRET_KEY: local-demo-webserver-key
+    AIRFLOW__WEBSERVER__WORKERS: '1'
+    AIRFLOW__SCHEDULER__PARSING_PROCESSES: '1'
+    AIRFLOW__SCHEDULER__SCHEDULER_HEARTBEAT_SEC: '2'
+  volumes:
+    - ./dags:/opt/airflow/dags:ro
+    - ./data:/opt/airflow/input:ro
+    - logs:/opt/airflow/logs
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: airflow
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U airflow"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  mail:
+    image: axllent/mailpit:v1.24
+    ports: ["${BIND_IP:-127.0.0.1}:18425:8025"]
+  init:
+    <<: *airflow
+    depends_on:
+      db: {condition: service_healthy}
+    command:
+      - bash
+      - -ec
+      - |
+        airflow db migrate
+        if ! airflow users list --output json | python -c 'import json,sys; sys.exit(not any(u["username"]=="review" for u in json.load(sys.stdin)))'; then
+          airflow users create --username review --password review --firstname Local --lastname Reviewer --role Admin --email reviewer@example.test
+        fi
+  web:
+    <<: *airflow
+    command: webserver
+    depends_on:
+      init: {condition: service_completed_successfully}
+    ports: ["${BIND_IP:-127.0.0.1}:18480:8080"]
+  scheduler:
+    <<: *airflow
+    command: scheduler
+    depends_on:
+      init: {condition: service_completed_successfully}
+      mail: {condition: service_started}
+volumes:
+  logs:
