@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="TradeWare · C4, контейнеры целевой системы">
+    <mxGraphModel pageWidth="1300" pageHeight="720" grid="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="edge0" parent="1" edge="1" source="user" target="erp" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge1" parent="1" edge="1" source="erp" target="gcs" value="Пишет CSV" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" parent="1" edge="1" source="erp" target="queue" value="Ставит в очередь" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.5;exitY=1.0;entryX=0.5;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge3" parent="1" edge="1" source="queue" target="worker" value="Доставляет задание" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" parent="1" edge="1" source="worker" target="gcs" value="Читает объект" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.5;exitY=0.0;entryX=0.5;entryY=1.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" parent="1" edge="1" source="worker" target="db" value="JDBC · чтение и запись" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.5;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1145" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" parent="1" edge="1" source="erp" target="db" value="Читает статус отчёта" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.0;exitY=0.75;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="310" y="185" />
+              <mxPoint x="310" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="user" parent="1" vertex="1" value="Человек&lt;br&gt;Сотрудник склада&lt;br&gt;Загружает сменный отчёт" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#154b75;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="35" y="110" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="erp" parent="1" vertex="1" value="Контейнер · Java&lt;br&gt;ERP / API&lt;br&gt;Валидирует файл, создаёт&lt;br&gt;заявку" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="350" y="110" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="gcs" parent="1" vertex="1" value="Внешняя система · GCP&lt;br&gt;Google Cloud Storage&lt;br&gt;Сохраняет исходный CSV" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#526577;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="740" y="110" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="queue" parent="1" vertex="1" value="Контейнер · очередь&lt;br&gt;Очередь импортов&lt;br&gt;Передаёт ссылку и ID отчёта" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="350" y="360" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="worker" parent="1" vertex="1" value="Контейнер · Java&lt;br&gt;Spring Batch worker&lt;br&gt;Обогащает товары порциями" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="740" y="360" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" vertex="1" value="Контейнер · БД&lt;br&gt;PostgreSQL&lt;br&gt;Справочник, товары,&lt;br&gt;метаданные" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="1030" y="555" width="230" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

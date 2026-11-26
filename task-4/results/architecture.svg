@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 720" width="1300" height="720" role="img">
+  <title>TradeWare · C4, контейнеры целевой системы</title>
+  <rect width="1300" height="720" fill="#f7f9fc" />
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#51677d" />
+    </marker>
+  </defs>
+  <text x="38" y="39" text-anchor="start" font-size="25" font-family="Arial, sans-serif" font-weight="700" fill="#273e54">TradeWare · C4, контейнеры целевой системы</text>
+  <polyline points="265,160 350,160" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="280.75" y="132" width="52.5" height="20" fill="#f7f9fc" />
+  <text x="307" y="147" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">HTTPS</text>
+  <polyline points="580,160 740,160" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="617.55" y="133" width="84.89999999999999" height="20" fill="#f7f9fc" />
+  <text x="660" y="148" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Пишет CSV</text>
+  <polyline points="465,210 465,360" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="394.2" y="275" width="141.6" height="20" fill="#f7f9fc" />
+  <text x="465" y="290" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Ставит в очередь</text>
+  <polyline points="580,410 740,410" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="581.1" y="383" width="157.79999999999998" height="20" fill="#f7f9fc" />
+  <text x="660" y="398" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Доставляет задание</text>
+  <polyline points="855,360 855,210" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="796.35" y="275" width="117.3" height="20" fill="#f7f9fc" />
+  <text x="855" y="290" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Читает объект</text>
+  <polyline points="970,410 1145,410 1145,555" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="1034.9" y="465" width="190.2" height="20" fill="#f7f9fc" />
+  <text x="1130" y="480" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">JDBC · чтение и запись</text>
+  <polyline points="350,185 310,185 310,605 1030,605" fill="none" stroke="#51677d" stroke-width="2" marker-end="url(#arrow)" />
+  <rect x="543.0" y="580" width="174.0" height="20" fill="#f7f9fc" />
+  <text x="630" y="595" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" font-weight="400" fill="#273e54">Читает статус отчёта</text>
+  <rect x="35" y="110" width="230" height="100" rx="10" fill="#154b75" />
+  <text x="150" y="132" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Человек</text>
+  <text x="150" y="159" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Сотрудник склада</text>
+  <text x="150" y="180" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Загружает сменный отчёт</text>
+  <rect x="350" y="110" width="230" height="100" rx="10" fill="#236393" />
+  <text x="465" y="132" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер · Java</text>
+  <text x="465" y="159" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">ERP / API</text>
+  <text x="465" y="180" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Валидирует файл, создаёт</text>
+  <text x="465" y="199" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">заявку</text>
+  <rect x="740" y="110" width="230" height="100" rx="10" fill="#526577" />
+  <text x="855" y="132" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Внешняя система · GCP</text>
+  <text x="855" y="159" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Google Cloud Storage</text>
+  <text x="855" y="180" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Сохраняет исходный CSV</text>
+  <rect x="350" y="360" width="230" height="100" rx="10" fill="#236393" />
+  <text x="465" y="382" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер · очередь</text>
+  <text x="465" y="409" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Очередь импортов</text>
+  <text x="465" y="430" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Передаёт ссылку и ID отчёта</text>
+  <rect x="740" y="360" width="230" height="100" rx="10" fill="#236393" />
+  <text x="855" y="382" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер · Java</text>
+  <text x="855" y="409" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Spring Batch worker</text>
+  <text x="855" y="430" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Обогащает товары порциями</text>
+  <rect x="1030" y="555" width="230" height="100" rx="10" fill="#236393" />
+  <text x="1145" y="577" text-anchor="middle" font-size="13" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Контейнер · БД</text>
+  <text x="1145" y="604" text-anchor="middle" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">PostgreSQL</text>
+  <text x="1145" y="625" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">Справочник, товары,</text>
+  <text x="1145" y="644" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" font-weight="400" fill="#ffffff">метаданные</text>
+</svg>
