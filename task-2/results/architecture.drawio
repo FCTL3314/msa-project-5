@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="B2B-прайсы · C4, контекст системы">
+    <mxGraphModel pageWidth="1300" pageHeight="495" grid="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="edge0" parent="1" edge="1" source="buyer" target="shop" value="Запрашивает прайс · HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge1" parent="1" edge="1" source="shop" target="store" value="Публикует файлы · S3 API" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=1.0;exitY=0.5;entryX=0.0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" parent="1" edge="1" source="ops" target="shop" value="Получает статус запуска" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.5;exitY=0.0;entryX=0.5;entryY=1.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge3" parent="1" edge="1" source="buyer" target="store" value="Скачивает по временной ссылке" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#51677d;fontSize=14;labelBackgroundColor=#f7f9fc;exitX=0.4782608695652174;exitY=0.0;entryX=0.5;entryY=0.0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="68" />
+              <mxPoint x="1095" y="68" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="buyer" parent="1" vertex="1" value="Человек&lt;br&gt;B2B-покупатель&lt;br&gt;Скачивает прайс по договору" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#154b75;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="40" y="100" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="shop" parent="1" vertex="1" value="Система&lt;br&gt;Онлайн-магазин&lt;br&gt;Готовит личные прайсы в 06:00" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#236393;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="515" y="100" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="store" parent="1" vertex="1" value="Внешняя система&lt;br&gt;Объектное хранилище&lt;br&gt;Хранит закрытые CSV и XLS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#526577;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="980" y="100" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ops" parent="1" vertex="1" value="Человек&lt;br&gt;Дежурный инженер&lt;br&gt;Проверяет готовность выгрузок" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#154b75;fontColor=#ffffff;fontSize=15;strokeColor=none;">
+          <mxGeometry x="515" y="330" width="230" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
