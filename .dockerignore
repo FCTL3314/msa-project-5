@@ -1,0 +1,8 @@
+.git
+**/.DS_Store
+**/evidence/
+**/.gradle/
+**/build/
+task-4/initial/
+task-4/complete/
+task-5/initial/

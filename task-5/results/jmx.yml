@@ -1,0 +1,6 @@
+includeObjectNames: ['tradeware:type=Import']
+rules:
+  - {pattern: 'tradeware<type=Import><>Completed', name: warehouse_import_completed, type: COUNTER}
+  - {pattern: 'tradeware<type=Import><>Failed', name: warehouse_import_failed, type: COUNTER}
+  - {pattern: 'tradeware<type=Import><>Written', name: warehouse_import_rows, type: COUNTER}
+  - {pattern: 'tradeware<type=Import><>LastSeconds', name: warehouse_import_last_duration_seconds, type: GAUGE}
