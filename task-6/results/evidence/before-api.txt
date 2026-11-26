@@ -1,0 +1,5 @@
+ job_execution_id |  status
+------------------+-----------
+                1 | COMPLETED
+                2 | COMPLETED
+(2 rows)

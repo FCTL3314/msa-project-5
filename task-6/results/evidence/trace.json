@@ -1,0 +1,55 @@
+[
+  {
+    "traceId": "6b086122d74f9fe5b48a5bb68170045f",
+    "spanId": "b48a5bb68170045f",
+    "@timestamp": "2026-11-26T16:41:06.159Z",
+    "message": "api.received",
+    "URI": "/imports"
+  },
+  {
+    "traceId": "6b086122d74f9fe5b48a5bb68170045f",
+    "spanId": "30e57fcf3d078f4b",
+    "@timestamp": "2026-11-26T16:41:06.180Z",
+    "message": "Job: [SimpleJob: [name=importProducts]] launched with the following parameters: [{'request':'{value=0c91b899-d6df-4cb0-a75b-c67786ed1aaf, type=class java.lang.String, identifying=true}','sample':'{value=normal, type=class java.lang.String, identifying=true}'}]",
+    "URI": "/imports"
+  },
+  {
+    "traceId": "6b086122d74f9fe5b48a5bb68170045f",
+    "spanId": "e4983048582bc483",
+    "executionId": 3,
+    "@timestamp": "2026-11-26T16:41:06.188Z",
+    "message": "import.started",
+    "URI": "/imports"
+  },
+  {
+    "traceId": "6b086122d74f9fe5b48a5bb68170045f",
+    "spanId": "e4983048582bc483",
+    "@timestamp": "2026-11-26T16:41:06.192Z",
+    "message": "Executing step: [importRows]",
+    "URI": "/imports"
+  },
+  {
+    "traceId": "6b086122d74f9fe5b48a5bb68170045f",
+    "spanId": "e4983048582bc483",
+    "@timestamp": "2026-11-26T16:41:06.230Z",
+    "message": "Step: [importRows] executed in 37ms",
+    "URI": "/imports"
+  },
+  {
+    "traceId": "6b086122d74f9fe5b48a5bb68170045f",
+    "spanId": "30e57fcf3d078f4b",
+    "executionId": 3,
+    "@timestamp": "2026-11-26T16:41:06.235Z",
+    "message": "import.finished",
+    "rows": 5,
+    "URI": "/imports",
+    "status": "COMPLETED"
+  },
+  {
+    "traceId": "6b086122d74f9fe5b48a5bb68170045f",
+    "spanId": "30e57fcf3d078f4b",
+    "@timestamp": "2026-11-26T16:41:06.238Z",
+    "message": "Job: [SimpleJob: [name=importProducts]] completed with the following parameters: [{'request':'{value=0c91b899-d6df-4cb0-a75b-c67786ed1aaf, type=class java.lang.String, identifying=true}','sample':'{value=normal, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 50ms",
+    "URI": "/imports"
+  }
+]
